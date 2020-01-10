@@ -15,7 +15,6 @@ public class LoginInteractor {
 
     public void login(final String username, final String password, final OnLoginCompletedListener listener) {
         //mock
-
         if (StringUtils.isEmpty(username)) {
             listener.onUserNameError();
             return;
