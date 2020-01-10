@@ -1,24 +1,22 @@
-package com.example.prudentiallogindemo;
+package com.example.prudentiallogindemo.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.ColorUtils;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-
-import org.w3c.dom.Text;
+import com.example.prudentiallogindemo.home.HomeActivity;
+import com.example.prudentiallogindemo.R;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -69,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 Color.TRANSPARENT,
                 ColorUtils.setAlphaComponent(getResources().getColor(R.color.colorBtnEnabled), 120),
                 Color.TRANSPARENT);
-        anim.setDuration(800);
+        anim.setDuration(1200);
         anim.setEvaluator(new ArgbEvaluator());
         anim.start();
     }
@@ -99,6 +97,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void navigateToHome() {
-
+        startActivity(new Intent(this, HomeActivity.class));
+        this.overridePendingTransition(0, 0);//with animation
+        finish();
     }
 }

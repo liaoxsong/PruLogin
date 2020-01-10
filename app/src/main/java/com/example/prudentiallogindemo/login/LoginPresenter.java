@@ -1,4 +1,4 @@
-package com.example.prudentiallogindemo;
+package com.example.prudentiallogindemo.login;
 
 public class LoginPresenter implements LoginInteractor.OnLoginCompletedListener {
 
@@ -6,7 +6,7 @@ public class LoginPresenter implements LoginInteractor.OnLoginCompletedListener 
     private LoginView loginView;
     private final LoginInteractor loginInteractor;
 
-    LoginPresenter(LoginView view, LoginInteractor interactor) {
+    public LoginPresenter(LoginView view, LoginInteractor interactor) {
         this.loginView = view;
         this.loginInteractor = interactor;
     }
