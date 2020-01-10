@@ -1,8 +1,5 @@
 package com.example.prudentiallogindemo.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.ColorUtils;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ArgbEvaluator;
@@ -14,12 +11,14 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.prudentiallogindemo.home.HomeActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.ColorUtils;
+
 import com.example.prudentiallogindemo.R;
+import com.example.prudentiallogindemo.home.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 

@@ -1,8 +1,5 @@
 package com.example.prudentiallogindemo.login;
 
-import android.os.Handler;
-import android.text.TextUtils;
-
 import com.example.prudentiallogindemo.utils.StringUtils;
 
 public class LoginInteractor {

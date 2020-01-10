@@ -1,13 +1,10 @@
 package com.example.prudentiallogindemo.home;
 
 import android.animation.Animator;
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewAnimationUtils;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
