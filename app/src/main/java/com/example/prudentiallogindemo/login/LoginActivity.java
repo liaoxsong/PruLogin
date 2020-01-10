@@ -3,6 +3,8 @@ package com.example.prudentiallogindemo.login;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.ColorUtils;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
@@ -62,14 +64,22 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     private void flashForError(View view) {
-        ObjectAnimator anim = ObjectAnimator.ofInt(view,
+        View errorView = view.getId() == R.id.edit_username ? findViewById(R.id.error_username) : findViewById(R.id.error_password);
+        errorView.setVisibility(View.VISIBLE);
+        ObjectAnimator anim = ObjectAnimator.ofInt(errorView,
                 "backgroundColor",
                 Color.TRANSPARENT,
-                ColorUtils.setAlphaComponent(getResources().getColor(R.color.colorBtnEnabled), 120),
+                ColorUtils.setAlphaComponent(getResources().getColor(R.color.colorBtnEnabled), 80),
                 Color.TRANSPARENT);
         anim.setDuration(1200);
         anim.setEvaluator(new ArgbEvaluator());
         anim.start();
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                errorView.setVisibility(View.GONE);
+            }
+        });
     }
 
     private TextWatcher credentialTextWatcher = new TextWatcher() {
@@ -87,9 +97,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         public void afterTextChanged(Editable editable) {
             boolean hasEmptyField = TextUtils.isEmpty(usernameEdit.getText().toString()) || TextUtils.isEmpty(passwordEdit.getText().toString());
             if (hasEmptyField) {
-                loginButton.setBackgroundColor(getResources().getColor(R.color.colorBtnDisabled));
+                loginButton.setBackgroundResource(R.drawable.rounded_button_invalid);
             } else {
-                loginButton.setBackgroundColor(getResources().getColor(R.color.colorBtnEnabled));
+                loginButton.setBackgroundResource(R.drawable.rounded_button_valid);
             }
         }
     };
